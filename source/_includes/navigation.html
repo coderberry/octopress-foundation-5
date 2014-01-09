@@ -1,0 +1,29 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      {% if page.title %}
+        <h1><a href="#">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</a></h1>
+      {% endif %}
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="subscription right" data-subscription="rss{% if site.subscribe_email %} email{% endif %}">
+      {% if site.simple_search %}
+        <li class="has-form">
+          <form action="{{ site.simple_search }}" method="get">
+            <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+            <input type="text" name="q" results="0" placeholder="Search"/>
+          </form>
+        </li>
+      {% endif %}
+      <li><a href="{{ site.subscribe_rss }}" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      {% if site.subscribe_email %}
+        <li><a href="{{ site.subscribe_email }}" rel="subscribe-email" title="subscribe via email">Email</a></li>
+      {% endif %}
+    </ul>
+
+    {% include custom/navigation.html %}
+  </section>
+</nav>
